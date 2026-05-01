@@ -43,6 +43,9 @@ jobs:
       - name: Build static export
         run: pnpm build
 
+      - name: Preserve custom domain
+        run: echo "lightmind.art" > ./out/CNAME
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
