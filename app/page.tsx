@@ -8,6 +8,8 @@ import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
 import { ParticleBackground } from "@/components/particle-background"
 
+export const dynamic = "force-static"
+
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-background text-foreground">
