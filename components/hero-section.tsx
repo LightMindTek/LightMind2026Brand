@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { LightMindAppLinks } from "@/components/lightmind-app-links"
 
 export function HeroSection() {
   const imageRef = useRef<HTMLDivElement>(null)
@@ -53,6 +54,7 @@ export function HeroSection() {
                 Explore Products
               </Link>
             </div>
+            <LightMindAppLinks />
           </div>
 
           <div className="order-1 lg:order-2 fade-up" style={{ animationDelay: "0.2s" }}>

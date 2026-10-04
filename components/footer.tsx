@@ -37,6 +37,11 @@ export function Footer() {
               <div>
                 <h4 className="text-sm font-semibold mb-5 text-foreground">Products</h4>
                 <ul className="space-y-3">
+                  <li>
+                    <Link href="#app" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      LightMind Agent app
+                    </Link>
+                  </li>
                   {lightmindProducts.map((product) => (
                     <li key={product.id}>
                       <Link href="#products" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

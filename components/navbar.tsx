@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
+import { LightMindAppButton } from "@/components/lightmind-app-links"
 
 const navLinks = [
   { name: "Products", href: "#products" },
@@ -53,7 +54,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -66,7 +67,8 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-4">
+            <LightMindAppButton />
             <Link
               href="#contact"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300 hover-line"
@@ -84,8 +86,10 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 -mr-2"
+            className="lg:hidden p-2 -mr-2"
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? (
               <X className="w-5 h-5" />
@@ -97,8 +101,10 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-            isMobileMenuOpen ? "max-h-[400px] pb-8" : "max-h-0"
+          id="mobile-navigation"
+          inert={!isMobileMenuOpen}
+          className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+            isMobileMenuOpen ? "max-h-[560px] pb-8" : "max-h-0"
           }`}
         >
           <div className="flex flex-col gap-1 pt-4 border-t border-border">
@@ -114,6 +120,7 @@ export function Navbar() {
               </Link>
             ))}
             <div className="flex flex-col gap-3 mt-6">
+              <LightMindAppButton onClick={() => setIsMobileMenuOpen(false)} />
               <Link
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
