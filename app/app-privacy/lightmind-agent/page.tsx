@@ -13,8 +13,8 @@ const sections = [
   {
     title: "Summary",
     paragraphs: [
-      "LightMind Agent is a local-first mobile companion published by LightMind Tech Limited. The app does not contain advertising, third-party analytics, cross-app tracking, or a publisher-operated user account. Core app features work without sending personal data to LightMind Tech Limited.",
-      "This notice applies to the LightMind Agent Android and iOS apps and their companion browser experience. The separate LightMind website privacy policy applies to information submitted through the company website.",
+      "LightMind Agent is a local-first companion published by LightMind Tech Limited. Local notes and disconnected workspaces do not require glasses or an account. Connected AI tools and optional Studio editing send only the inputs you choose to their configured services. The app does not contain advertising, third-party analytics, or cross-app tracking.",
+      "This notice applies to the LightMind Agent Android, iOS, iPadOS and macOS apps and their companion browser experience. Available capabilities depend on the app version and platform. The separate website privacy policy applies to the company website.",
     ],
   },
   {
@@ -28,14 +28,22 @@ const sections = [
   {
     title: "Optional network requests",
     paragraphs: [
-      "You can enable a backend URL and explicitly submit an assistant prompt or tool-session request. A request can include submitted text, language, a random local conversation or session identifier, selected capability, timestamps, and related interaction metadata. Media is included only when the selected workflow says it will be included.",
-      "The public release does not contain a default publisher-operated backend account or reusable hardware-provider credential. The destination, operator, purpose, retention, and deletion terms for a configured endpoint depend on the URL you choose. Do not use an endpoint you do not trust.",
+      "You can connect an AI service and explicitly submit a prompt, translation or tool request. Depending on the action, it can include text, language, selected photos or audio, location coordinates or a place label, session identifiers, capability and timestamps. Location and media require the corresponding selection or consent. These inputs are used to provide the requested result, not advertising.",
+      "Configured services may be operated by LightMind, by you or by another provider, and may forward the chosen input to an AI provider. Backend jobs and results can remain available after the immediate request for retrieval and recovery. Do not assume optional requests are anonymous or immediately deleted. Use only trusted endpoints and avoid unnecessary sensitive information.",
+    ],
+  },
+  {
+    title: "Optional Studio accounts and media",
+    paragraphs: [
+      "Studio linking is a separate, optional account connection. After browser approval, LightMind receives a scoped credential and account identifier. The configured Studio workspace stores uploaded videos, accompanying audio, editing instructions, derived media and job records under that account. Selecting a video first creates a local preview; upload and editing are separate actions.",
+      "Publishing requires additional authorization and configured social channels. Connecting an account, choosing a file or generating a preview does not itself authorize social publication. Revoking the link disables that client's grant; it does not delete the provider account or previously uploaded media. Manage those records with the provider's controls or support.",
     ],
   },
   {
     title: "Permissions and recording",
     paragraphs: [
       "Bluetooth and Nearby Devices permissions connect the phone to supported glasses. Android 11 and earlier can require a location-related permission for Bluetooth discovery; LightMind Agent does not use that permission to collect GPS location. Network and Wi-Fi permissions support local device communication and optional backend requests.",
+      "Separately, AI Tour can request current precise or approximate location when you choose location input. You can instead provide a place label or image. Camera and microphone access is optional. On macOS, the system picker requires user-selected read/write sandbox permission; importing a movie reads the original and stages a private copy without modifying the source.",
       "Photo, video, and audio actions begin only after a user action. Active recording is identified by the operating system or an in-app recording state. You are responsible for giving appropriate notice and obtaining consent before recording another person.",
     ],
   },
@@ -48,8 +56,8 @@ const sections = [
   {
     title: "Retention and deletion",
     paragraphs: [
-      "Local records remain until you delete them with available app controls, clear app or browser storage, or uninstall the app. Android cloud backup is disabled for app-local state. Backend bearer tokens are held only for the current app process or browser session and are not stored with job data.",
-      "Data sent to a configured backend is governed by that endpoint operator. Because this release has no LightMind Agent publisher account, there is no app account record to delete from LightMind Tech Limited.",
+      "Local records remain until you remove them with available app controls or clear app storage. Credentials can persist between launches: Apple clients use the system Keychain for protected connection credentials. Disconnect or revoke optional services when no longer needed; uninstalling an app alone may not remove Keychain entries or server records.",
+      "Uploaded Studio media and server job records have a separate lifecycle from local copies. Local deletion or disconnect does not automatically delete remote data. Use the configured service's deletion controls or contact its operator. For LightMind-operated processing or assistance with a deletion request, contact lightmind@lightmind.art and identify the service and records concerned without sending passwords or connection keys.",
     ],
   },
   {
@@ -99,9 +107,9 @@ export default function LightMindAgentPrivacyPage() {
             App Privacy Notice
           </h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Effective July 26, 2026. This notice explains how LightMind Agent,
+            Updated October 4, 2026. This notice explains how LightMind Agent,
             published by LightMind Tech Limited, handles information in the
-            mobile companion and browser app.
+            mobile, Mac and browser companion apps.
           </p>
         </header>
 
@@ -138,7 +146,7 @@ export default function LightMindAgentPrivacyPage() {
               .
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              Last updated: July 26, 2026.
+              Last updated: October 4, 2026.
             </p>
           </section>
         </div>
